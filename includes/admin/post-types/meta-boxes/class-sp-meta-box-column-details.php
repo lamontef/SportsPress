@@ -25,6 +25,7 @@ class SP_Meta_Box_Column_Details extends SP_Meta_Box_Config {
 		wp_nonce_field( 'sportspress_save_data', 'sportspress_meta_nonce' );
 		$equation = explode( ' ', get_post_meta( $post->ID, 'sp_equation', true ) );
 		$order = get_post_meta( $post->ID, 'sp_order', true );
+		$h2h_only = get_post_meta( $post->ID, 'sp_h2h_only', true );
 		$priority = get_post_meta( $post->ID, 'sp_priority', true );
 		$precision = get_post_meta( $post->ID, 'sp_precision', true );
 
@@ -62,6 +63,11 @@ class SP_Meta_Box_Column_Details extends SP_Meta_Box_Config {
 				endforeach;
 				?>
 			</select>
+			<br/>
+			<label for="sp_h2h_only">
+			H2H ONLY: 
+			<input name="sp_h2h_only" type="checkbox" id="sp_h2h_only" value="1" <?php checked( $h2h_only ); ?>>
+			</label>
 		</p>
 		<?php
 	}
@@ -74,5 +80,6 @@ class SP_Meta_Box_Column_Details extends SP_Meta_Box_Config {
 		update_post_meta( $post_id, 'sp_precision', (int) sp_array_value( $_POST, 'sp_precision', 1 ) );
 		update_post_meta( $post_id, 'sp_priority', sp_array_value( $_POST, 'sp_priority', '0' ) );
 		update_post_meta( $post_id, 'sp_order', sp_array_value( $_POST, 'sp_order', 'DESC' ) );
+		update_post_meta( $post_id, 'sp_h2h_only', sp_array_value( $_POST, 'sp_h2h_only', '0' ) );
 	}
 }
