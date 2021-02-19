@@ -506,11 +506,12 @@ if ( !function_exists( 'sp_get_post_order' ) ) {
 	function sp_get_post_order( $post_id ) {
 		$priority = get_post_meta ( $post_id, 'sp_priority', true );
 		if ( $priority ):
+			$h2h_only = ( get_post_meta ( $post_id, 'sp_h2h_only', true ) ) ? '*' : '';
 			return $priority . ' ' . str_replace(
 				array( 'DESC', 'ASC' ),
 				array( '&darr;', '&uarr;' ),
 				get_post_meta ( $post_id, 'sp_order', true )
-			);
+			) . $h2h_only;
 		else:
 			return '&mdash;';
 		endif;

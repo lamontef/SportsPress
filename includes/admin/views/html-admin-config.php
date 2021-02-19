@@ -257,7 +257,7 @@ $columns = get_option( 'sportspress_player_columns', 'auto' );
 			<tr valign="top">
 				<th scope="row" class="titledesc">
 					<?php _e( 'Table Columns', 'sportspress' ) ?>
-					<p class="description"><?php _e( 'Used for league tables.', 'sportspress' ); ?></p>
+					<p class="description"><?php _e( 'Used for league tables.', 'sportspress' ); ?><br/><?php _e( '* ranking used only in H2H.', 'sportspress' ); ?></p>
 				</th>
 			    <td class="forminp">
 					<table class="widefat sp-admin-config-table">
